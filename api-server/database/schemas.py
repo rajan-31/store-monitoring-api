@@ -21,7 +21,7 @@ class MenuHoursBase(BaseModel):
 
 class ReportsStatusBase(BaseModel):
     report_id: UUID4
-    status: str
+    status: str | None = None
 
 class ReportsDataBase(BaseModel):
     report_id: UUID4
