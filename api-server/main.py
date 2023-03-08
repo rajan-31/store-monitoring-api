@@ -72,6 +72,6 @@ async def get_report( report_id: str, db: Session = Depends(get_db)):
         csv_string = output.getvalue()
 
         return {
-            'csv_string': csv_string,
-            'status': 'Complete'
+            'status': 'Complete',
+            'csv_string': csv_string
         }

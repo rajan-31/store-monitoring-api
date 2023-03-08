@@ -1,5 +1,7 @@
 # Store Monitoring
 
+Watch demo video [here](https://youtu.be/wz-MtXdi6Iw)
+
 Tech Stack:
 
 - Python 3.11
