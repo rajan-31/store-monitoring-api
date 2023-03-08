@@ -25,13 +25,12 @@ def generateReport(curr_timestamp, report_id: UUID , db: Session):
 
     store_status['timestamp_utc'] = pd.to_datetime(store_status['timestamp_utc'], utc=True)
 
-    # for _sId, _sTz in store_timezones.to_numpy():
-    for _sId, _sTz in store_timezones.to_numpy()[:50]:
+    for _sId, _sTz in store_timezones.to_numpy():
+    # for _sId, _sTz in store_timezones.to_numpy()[:50]:
     # for _sId, _sTz in [store_timezones.to_numpy()[1]]:
         # print(f"{_sId}      {_sTz}\n=======================================")
     
         temp_curr_timestamp = curr_timestamp.astimezone(ZoneInfo(_sTz))
-
         
         last_week_start = dt.datetime.combine(temp_curr_timestamp.date() - dt.timedelta(days=7+temp_curr_timestamp.weekday()), dt.datetime.min.time()).astimezone(ZoneInfo(_sTz))
         last_week_end = dt.datetime.combine(temp_curr_timestamp.date() - dt.timedelta(days=1+temp_curr_timestamp.weekday()), dt.datetime.min.time()).astimezone(ZoneInfo(_sTz))
@@ -109,7 +108,6 @@ def generateReport(curr_timestamp, report_id: UUID , db: Session):
     db.commit()
     db.close()
 
-    print(f'DONE REPORT: {report_id}')
-
     end = timer()
-    print(end - start)
+
+    print(f'DONE REPORT: {report_id}, TIME: {end - start} seconds')
