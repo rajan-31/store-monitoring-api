@@ -3,6 +3,8 @@
 Tech Stack:
 
 - Python 3.11
+- FasiAPI 0.92
+- SQLAlchemy 2.0.4
 - PostgreSQL 15.2
 
 ### Install dependencies
