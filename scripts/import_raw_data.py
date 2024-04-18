@@ -22,10 +22,16 @@ menu_hours = pd.read_csv('../raw_data/Menu hours.csv',
                         dtype= {'store_id': 'int64', 'day': 'int8'}, 
                         parse_dates=['start_time_local', 'end_time_local']
                         )
-store_status = pd.read_csv('../raw_data/store status.csv', 
+
+store_status_1 = pd.read_csv('../raw_data/store status 1.csv', 
                         dtype={'store_id': 'int64'}, 
                         converters={'timestamp_utc': lambda str: str.replace(' UTC', '')}
                         )
+store_status_2 = pd.read_csv('../raw_data/store status 2.csv', 
+                        dtype={'store_id': 'int64'}, 
+                        converters={'timestamp_utc': lambda str: str.replace(' UTC', '')}
+                        )
+store_status = store_status_1.append(store_status_2, ignore_index=True)
 
 # ======================================================================
 # parse strings to appropriate datatypes
