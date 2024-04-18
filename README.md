@@ -15,6 +15,10 @@ Tech Stack:
 
 > OR manually install fastapi, uvicorn[standard], sqlalchemy, psycopg[binary]
 
+### Environment Variables
+
+Refer `.env.sample` file and create `.env` file
+
 ### Run API server (auto reload on code chnage)
 
 `uvicorn api-server.main:app --reload`
